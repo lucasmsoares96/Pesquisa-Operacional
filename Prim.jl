@@ -7,7 +7,8 @@ using .Commom
 
 export prim
 function prim(g, r)
-    # g -> grafo
+    # g → grafo
+    # r → vertice inicial
 
     N = collect(vertices(g))   # conjunto de todos os nós
     A = collect(edges(g))      # conjunto de todos os nós
@@ -17,7 +18,7 @@ function prim(g, r)
     V = filter(x -> x != r, N) # nós ainda isolados
 
     imprimir(E, T, V)
-    while T ≠ N && V ≠ ∅
+    while sort(T) ≠ sort(N)
         arestas = unique([edge(g, j, k) for j ∈ T, k ∈ V])
         e = reduce(
             (acc, val) -> val.weight < acc.weight ? val : acc,

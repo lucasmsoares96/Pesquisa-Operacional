@@ -8,7 +8,7 @@ using SimpleWeightedGraphs
 export primextended
 
 function primextended(g, r)
-    # g -> grafo
+    # g → grafo
     # r → nó inicial
 
     N = collect(vertices(g))   # conjunto de todos os nós
