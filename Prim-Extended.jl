@@ -5,7 +5,7 @@ using GraphPlot
 using Graphs
 using SimpleWeightedGraphs
 
-export primextended
+export primextended, desenhar
 
 function primextended(g, r)
     # g → grafo

@@ -57,7 +57,7 @@ end
 function desenhar(g::AbstractSimpleWeightedGraph{Int64,Int64})
     arestas = edges(g)
     pesos = [p.weight for p ∈ arestas]
-    gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5)
+    display(gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5))
 end
 
 edges(g::AbstractSimpleWeightedGraph{Int64,Int64}, v::Int64) = [e for e ∈ edges(g) if src(e) == v]

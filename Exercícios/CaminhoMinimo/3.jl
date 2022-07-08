@@ -1,10 +1,8 @@
 include("../../Floyd-Warshall.jl")
-include("../../Commom.jl")
+using .FloydWarshall
 using GraphPlot
 using Graphs
 using SimpleWeightedGraphs
-using .FloydWarshall
-using .Commom
 
 graph = [
     0 -2 0 0
@@ -21,7 +19,6 @@ graph = [
 # ];
 
 w = SimpleWeightedDiGraph(graph)
-desenhar(w)
 
 d, p = floydwarshall(w)
 
@@ -40,3 +37,5 @@ for s ∈ vertices(w), t ∈ vertices(w)
         println()
     end
 end
+
+desenhar(w)

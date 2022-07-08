@@ -1,10 +1,8 @@
 include("../../Bellman-Ford.jl")
-include("../../Commom.jl")
+using .BellmanFord
 using GraphPlot
 using Graphs
 using SimpleWeightedGraphs
-using .BellmanFord
-using .Commom
 
 graph = [
     0 -2 0 0 0 0
@@ -25,8 +23,9 @@ graph = [
 # ];
 
 w = SimpleWeightedDiGraph(graph)
-desenhar(w) # parou de funcionar
 
 
 print(bellmanford(w, 5, 2))
 
+
+desenhar(w)

@@ -5,7 +5,7 @@ using SimpleWeightedGraphs
 include("./Commom.jl")
 using .Commom
 
-export dijkstra
+export dijkstra, desenhar
 
 
 function dijkstra(g, s, t)

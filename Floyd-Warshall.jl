@@ -5,7 +5,7 @@ using GraphPlot
 using Graphs
 using SimpleWeightedGraphs
 
-export floydwarshall, menorcaminho
+export floydwarshall, menorcaminho, desenhar
 
 
 function menorcaminho(d, p, s, t)

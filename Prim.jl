@@ -1,11 +1,12 @@
 module Prim
+
+include("./Commom.jl")
+using .Commom
 using GraphPlot
 using Graphs
 using SimpleWeightedGraphs
-include("./Commom.jl")
-using .Commom
 
-export prim
+export prim, desenhar
 function prim(g, r)
     # g → grafo
     # r → vertice inicial
@@ -13,7 +14,7 @@ function prim(g, r)
     N = collect(vertices(g))   # conjunto de todos os nós
     A = collect(edges(g))      # conjunto de todos os nós
 
-    E = Tuple{Int64, Int64}[]  # arestas que formam a árvore gerador mínima
+    E = Tuple{Int64,Int64}[]  # arestas que formam a árvore gerador mínima
     T = [r]                    # nós conectados à solução parcial
     V = filter(x -> x != r, N) # nós ainda isolados
 
@@ -33,4 +34,5 @@ function prim(g, r)
     end
     return E
 end
+
 end

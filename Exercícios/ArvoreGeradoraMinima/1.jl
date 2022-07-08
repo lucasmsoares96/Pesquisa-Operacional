@@ -1,11 +1,7 @@
-include("../../Commom.jl")
 include("../../Prim.jl")
+using .Prim
 using GraphPlot
 using Graphs
-using SimpleWeightedGraphs
-using .Commom
-using .Prim
-
 using SimpleWeightedGraphs
 
 graph = [
@@ -18,6 +14,7 @@ graph = [
 ]
 
 w = SimpleWeightedGraph(graph)
-desenhar(w)
 
 print(prim(w, 3))
+
+desenhar(w)

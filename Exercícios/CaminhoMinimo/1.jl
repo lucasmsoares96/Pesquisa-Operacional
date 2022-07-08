@@ -1,11 +1,7 @@
-include("../../Commom.jl")
 include("../../Dijkstra.jl")
+using .Dijkstra
 using GraphPlot
 using Graphs
-using SimpleWeightedGraphs
-using .Commom
-using .Dijkstra
-
 using SimpleWeightedGraphs
 
 graph = [
@@ -18,6 +14,7 @@ graph = [
 ];
 
 w = SimpleWeightedDiGraph(graph)
-desenhar(w)
 
 print(dijkstra(w, 5, 3))
+
+desenhar(w)

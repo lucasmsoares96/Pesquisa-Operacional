@@ -1,11 +1,7 @@
-include("../../Commom.jl")
 include("../../Prim-Extended.jl")
+using .PrimExtended
 using GraphPlot
 using Graphs
-using SimpleWeightedGraphs
-using .Commom
-using .PrimExtended
-
 using SimpleWeightedGraphs
 
 graph = [
@@ -19,8 +15,8 @@ graph = [
     8 11 0 0 0 0 1 0 7
     0 0 0 0 0 0 6 7 0
 ]
-
 w = SimpleWeightedGraph(graph)
+
 desenhar(w)
 
 println(primextended(w, 1))

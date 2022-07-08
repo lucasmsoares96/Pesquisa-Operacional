@@ -5,7 +5,7 @@ using SimpleWeightedGraphs
 include("./Commom.jl")
 using .Commom
 
-export bellmanford
+export bellmanford, desenhar
 
 function bellmanford(g, s, t)
     # g -> grafo
