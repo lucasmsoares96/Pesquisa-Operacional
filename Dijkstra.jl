@@ -16,13 +16,13 @@ function dijkstra(g, s, t)
     n = collect(vertices(g))  # conjunto de todos os nós
     a = collect(edges(g))     # conjunto de todos os nós
 
-    R = [s]                    # conjunto de nós que já sabemos o caminho mínimo
+    R = [s]                   # conjunto de nós que já sabemos o caminho mínimo
     Q = filter(x -> x ≠ s, n) # conjunto de nós que NÃO sabemos o caminho mínimo
-    C = []                     # arestas que formam o caminho mínimo
-    d = [∞ for i ∈ n]       # di representa a menor distância do nó s até i
+    C = []                    # arestas que formam o caminho mínimo
+    d = [∞ for i ∈ n]         # di representa a menor distância do nó s até i
     p = [-1 for i ∈ n]        # pi representa o nó pai
-    d[s] = 0                   # distância do nó inicial
-    r = s                      # nó atual do algortimo
+    d[s] = 0                  # distância do nó inicial
+    r = s                     # nó atual do algortimo
 
     while r ≠ t
         imprimir(R, Q, r, d, p)

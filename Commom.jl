@@ -4,11 +4,36 @@ import Graphs: edges
 using Graphs
 using SimpleWeightedGraphs
 
-export imprimir, desenhar,edge, edges, ∅, ∞
+export imprimir, desenhar, edge, edges, ∅, ∞
 
 ∅ = []
 ∞ = Inf
 
+function imprimir(R, L, i, f⁺, f⁻, p, σ, y)
+    print("y: ")
+    display(y)
+    print("R: ")
+    display(R)
+    println()
+    print("L: ")
+    display(L)
+    println()
+    print("i: ")
+    display(i)
+    println()
+    print("f⁺: ")
+    display(f⁺)
+    println()
+    print("f⁻: ")
+    display(f⁻)
+    println()
+    print("p: ")
+    display(p)
+    println()
+    print("σ: ")
+    display(σ)
+    println()
+end
 function imprimir(R, Q, r, d, p, h)
     print("R:")
     println(R)
@@ -54,6 +79,12 @@ function imprimir(d, p)
     println()
 end
 
+function desenhar(w::Matrix{Int64} )
+    g = SimpleWeightedDiGraph(w)
+    arestas = edges(g)
+    pesos = [p.weight for p ∈ arestas]
+    display(gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5))
+end
 function desenhar(g::AbstractSimpleWeightedGraph{Int64,Int64})
     arestas = edges(g)
     pesos = [p.weight for p ∈ arestas]
@@ -72,6 +103,7 @@ function edge(g::SimpleWeightedGraph{Int64,Int64}, s, d)
     end
     return SimpleWeightedEdge(s, d, ∞)
 end
+
 function edge(g::SimpleWeightedDiGraph{Int64,Int64}, s, d)
     for e ∈ edges(g)
         if dst(e) == d && src(e) == s
@@ -80,4 +112,5 @@ function edge(g::SimpleWeightedDiGraph{Int64,Int64}, s, d)
     end
     return SimpleWeightedEdge(s, d, ∞)
 end
+
 end
