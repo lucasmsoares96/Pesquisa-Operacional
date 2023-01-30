@@ -6,8 +6,8 @@ using SimpleWeightedGraphs
 
 export imprimir, desenhar, edge, edges, ∅, ∞
 
-∅ = []
-∞ = Inf
+const ∅ = []
+const ∞ = Inf
 
 function imprimir(R, L, i, f⁺, f⁻, p, σ, y)
     print("y: ")
@@ -34,6 +34,7 @@ function imprimir(R, L, i, f⁺, f⁻, p, σ, y)
     display(σ)
     println()
 end
+
 function imprimir(R, Q, r, d, p, h)
     print("R:")
     println(R)
@@ -49,6 +50,7 @@ function imprimir(R, Q, r, d, p, h)
     println(h)
     println()
 end
+
 function imprimir(R, Q, r, d, p)
     print("R:")
     println(R)
@@ -62,6 +64,7 @@ function imprimir(R, Q, r, d, p)
     println(p)
     println()
 end
+
 function imprimir(E, T, V)
     print("T:")
     println(T)
@@ -71,6 +74,7 @@ function imprimir(E, T, V)
     println(E)
     println()
 end
+
 function imprimir(d, p)
     print("d:")
     display(d)
@@ -84,11 +88,13 @@ function desenhar(w::Matrix{Int64} )
     arestas = edges(g)
     pesos = [p.weight for p ∈ arestas]
     display(gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5))
+    return nothing
 end
 function desenhar(g::AbstractSimpleWeightedGraph{Int64,Int64})
     arestas = edges(g)
     pesos = [p.weight for p ∈ arestas]
     display(gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5))
+    return nothing
 end
 
 edges(g::AbstractSimpleWeightedGraph{Int64,Int64}, v::Int64) = [e for e ∈ edges(g) if src(e) == v]

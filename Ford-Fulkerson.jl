@@ -7,9 +7,9 @@ using Graphs
 using SimpleWeightedGraphs
 
 export fordfulkerson, desenhar
-∅ = Set()
+const ∅ = Set()
 
-function atualizar_fluxo(G, s, t, y, f⁺, f⁻, p, σ)
+function atualizar_fluxo(G, s, t, y, f⁺, f⁻, p, σ):: Tuple{Int, Matrix{Int64}, Matrix{Int64}}
     r = t
     P = ∅
     δ = +∞
@@ -44,7 +44,7 @@ function fordfulkerson(w, s, t)
 
     N = vertices(G)
     A = edges(G)
-    y = 0
+    y::Int = 0
     f⁺ = [G.weights[j, i] for i ∈ N, j ∈ N]
     f⁻ = [0 for i ∈ N, j ∈ N]
 

@@ -10,6 +10,7 @@ w = [
     14 00 00 04 00 00
 ]
 
-display(fordfulkerson(w, 5, 2))
+# @code_warntype(fordfulkerson(w, 5, 2))
+@time display(fordfulkerson(w, 5, 2))
 
-desenhar(w)
+# desenhar(w)

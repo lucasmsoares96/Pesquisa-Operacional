@@ -18,9 +18,9 @@ function bellmanford(g, s, t)
     R = []                     # conjunto de nós que já sabemos o caminho mínimo
     Q = N                      # conjunto de nós que NÃO sabemos o caminho mínimo
     C = []                     # arestas que formam o caminho mínimo
-    d = [∞ for i ∈ N]          # d[i] menor distância do nó s até i
-    p = [-1 for i ∈ N]         # p[i] o nó pai
-    h = [0 for i ∈ N]          # h[i] vezes que o vertice foi rotulado
+    d = [∞ for _ ∈ N]          # d[i] menor distância do nó s até i
+    p = [-1 for _ ∈ N]         # p[i] o nó pai
+    h = [0 for _ ∈ N]          # h[i] vezes que o vertice foi rotulado
     d[s] = 0                   # distância do nó inicial
     r = s                      # nó atual do algortimo
 
