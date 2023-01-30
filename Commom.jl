@@ -4,9 +4,8 @@ import Graphs: edges
 using Graphs
 using SimpleWeightedGraphs
 
-export imprimir, desenhar, edge, edges, ∅, ∞
+export imprimir, desenhar, edge, edges
 
-const ∅ = []
 const ∞ = Inf
 
 function imprimir(R, L, i, f⁺, f⁻, p, σ, y)
@@ -87,14 +86,12 @@ function desenhar(w::Matrix{Int64} )
     g = SimpleWeightedDiGraph(w)
     arestas = edges(g)
     pesos = [p.weight for p ∈ arestas]
-    display(gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5))
-    return nothing
+    gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5)
 end
 function desenhar(g::AbstractSimpleWeightedGraph{Int64,Int64})
     arestas = edges(g)
     pesos = [p.weight for p ∈ arestas]
-    display(gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5))
-    return nothing
+    gplot(g, edgelabel=pesos, nodelabel=1:nv(g), edgelabeldistx=0.5, edgelabeldisty=0.5)
 end
 
 edges(g::AbstractSimpleWeightedGraph{Int64,Int64}, v::Int64) = [e for e ∈ edges(g) if src(e) == v]

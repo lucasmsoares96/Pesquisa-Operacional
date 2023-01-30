@@ -4,7 +4,7 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ d35ae9dc-8fe2-4ecc-ad84-78dcfe7a1a27
+# ╔═╡ b916707c-cd52-4af1-a533-97062638bca5
 begin
 	include("./Commom.jl")
 	using .Commom
@@ -15,78 +15,15 @@ begin
 	TableOfContents(title="Índice")
 end
 
-# ╔═╡ 1d8d9886-d352-43b5-b3a3-b5754bfbef10
+# ╔═╡ 56ec4442-a0f1-11ed-2949-9f38cd8d47d4
 md"""
-# Prim
+# Kruskal (Incompleto)
 """
 
-# ╔═╡ 03ec0a4f-ade4-46ca-9d86-5d2066f48f9d
+# ╔═╡ 003741f4-4345-497b-b93e-d4deb6be65a8
 md"""
 Árvore Geradora Mínima
 """
-
-# ╔═╡ 60e442c1-2a4b-4ff1-9bd4-1b70c60ebfb3
-md"""
-## Implementação
-"""
-
-# ╔═╡ 45cf3f8c-024f-490a-a2bd-db947e1aaccb
-const ∅ = Set()
-
-# ╔═╡ 219f7025-73d0-4095-b3b5-131c528e224e
-const ∞ = Inf
-
-# ╔═╡ c21c9238-cf11-4b3e-99a0-1f37c35f8474
-function prim(g, r)
-    # g → grafo
-    # r → vertice inicial
-
-    N = Set(vertices(g))       # conjunto de todos os nós
-    A = Set(edges(g))          # conjunto de todos os nós
-    E = ∅                      # arestas que formam a árvore gerador mínima
-    T = Set([r])               # nós conectados à solução parcial
-    V = filter(x -> x != r, N) # nós ainda isolados
-
-    Commom.imprimir(E, T, V)
-    while T ≠ N && T ≠ ∅
-        arestas = Set([Commom.edge(g, j, k) for j ∈ T, k ∈ V])
-        e = reduce(
-            (acc, val) -> val.weight < acc.weight ? val : acc,
-            arestas
-        )
-        j = src(e)
-        k = dst(e)
-        T = ∪(T, [k])
-        delete!(V, k)
-        E = ∪(E, [(j, k)])
-        Commom.imprimir(E, T, V)
-    end
-    return E
-end
-
-# ╔═╡ 66c41e91-182d-4dd9-8a2e-c37139ada270
-md"""
-## Exemplo
-"""
-
-# ╔═╡ a485b607-2447-47dd-9236-a8be8ce3fd57
-begin
-	w3 = [
-	     0 5  9 20  4 0 0 14 15
-	     5 0  6  0  0 0 0  0  0
-	     9 6  0 15  0 0 0  0  0
-	    20 0 15  0  0 7 0  0  0
-	     4 0  0  0  0 0 5 13  6
-	     0 0  0  7  0 0 0  0  0
-	     0 0  0  0  5 0 0  7  0
-	    14 0  0  0 13 0 7  0  5
-	    15 0  0  0  6 0 0  5  0
-	] |> SimpleWeightedGraph
-	Commom.desenhar(w3)
-end
-
-# ╔═╡ 7bcf495f-f753-4845-80de-2b490a8587da
-prim(w3, 1)
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -109,7 +46,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.8.5"
 manifest_format = "2.0"
-project_hash = "3ac3cb6653c5bb8879fad96ade3fba3939d810e4"
+project_hash = "e87d4c39d414511fa3aa8ad65ff63b893292fdaa"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -469,15 +406,8 @@ version = "17.4.0+0"
 """
 
 # ╔═╡ Cell order:
-# ╟─1d8d9886-d352-43b5-b3a3-b5754bfbef10
-# ╟─03ec0a4f-ade4-46ca-9d86-5d2066f48f9d
-# ╠═d35ae9dc-8fe2-4ecc-ad84-78dcfe7a1a27
-# ╟─60e442c1-2a4b-4ff1-9bd4-1b70c60ebfb3
-# ╟─45cf3f8c-024f-490a-a2bd-db947e1aaccb
-# ╟─219f7025-73d0-4095-b3b5-131c528e224e
-# ╠═c21c9238-cf11-4b3e-99a0-1f37c35f8474
-# ╟─66c41e91-182d-4dd9-8a2e-c37139ada270
-# ╠═a485b607-2447-47dd-9236-a8be8ce3fd57
-# ╠═7bcf495f-f753-4845-80de-2b490a8587da
+# ╟─56ec4442-a0f1-11ed-2949-9f38cd8d47d4
+# ╟─003741f4-4345-497b-b93e-d4deb6be65a8
+# ╠═b916707c-cd52-4af1-a533-97062638bca5
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
